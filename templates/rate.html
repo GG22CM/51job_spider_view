@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        header {
+            display: flex;
+            padding: 0 10%;
+            justify-content: space-between;
+        }
+        header>div {
+            text-align: center;
+        }
+        header .title {
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        header .tabbar {
+            display: flex;
+
+        }
+        header>div>div {
+            padding: 20px 40px;
+            font-size: 20px;
+
+
+        }
+        header>div>div>a {
+
+            color: aquamarine;
+        }
+        header>div>div>a:hover {
+            color: red;
+        }
+        section {
+            background-color: lightblue;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        footer {
+            background-color: #333;
+            height: 11vh;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+        .to_left,
+        .to_right {
+            opacity: 0;
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 150px;
+            background-color: rgba(200, 200, 200, .7);
+            cursor: pointer;
+        }
+
+        .to_right>img,
+        .to_left>img {
+            height: 100%;
+            width: 150px;
+        }
+
+        .to_left>img {
+            transform: scale(-1);
+        }
+
+        .to_left {
+            top: 0;
+            left: 0;
+        }
+
+        .to_right {
+            top: 0;
+            right: 0;
+        }
+
+        .to_left:hover,
+        .to_right:hover {
+            transition: opacity 1s;
+            opacity: 1;
+        }
+
+        .content {
+            display: flex;
+            transition: transform 1s;
+            height: 100%;
+        }
+        .content>div{
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            padding: 50px 10% 0 10%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <div class="title">java工作数据分析</div>
+        <div class="tabbar">
+            <div><a href="/home">首页</a></div>
+            <div><a href="/table">总表</a></div>
+            <div><a href="/rate">图表</a></div>
+            <div><a href="/word">词云</a></div>
+        </div>
+    </header>
+
+    <section>
+        <div class="content">
+            <div >
+            <div>
+                按照
+                <select id="selectArea" name="" id="">
+                    <option value="salary" selected>工资</option>
+                    <option value="area">地区</option>
+                    <option value="experience">工作经验</option>
+                    <option value="academic_degree">要求学历</option>
+                    <option value="number">招收人数</option>
+                </select>
+                分组
+            </div>
+            <div id="bar_chart" style="height: 100%;margin-top: 20px;"></div>
+        </div>
+        <div>
+            <div>
+                按照
+                 <select id="fan_selectArea" name="" id="">
+                    <option value="salary" selected>工资</option>
+                    <option value="area">地区</option>
+                    <option value="experience">工作经验</option>
+                    <option value="academic_degree">要求学历</option>
+                    <option value="number">招收人数</option>
+                </select>
+                分组
+            </div>
+            <div id="fan_chart" style="height: 90%;margin-top: 20px;"></div>
+        </div>
+        </div>
+        <a class="to_right"><img src="/static/images/to_right.png" alt=""></a>
+        <a class="to_left"><img src="/static/images/to_right.png" alt=""></a>
+    </section>
+    <footer>
+        已经到底啦~
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <script src="/static/js/dist/bundle.js"></script>
+    <script>
+        let right = document.querySelector('a.to_right')
+        let left = document.querySelector('a.to_left')
+        let content = document.querySelector('.content')
+        let currentIndex = 0
+        right.addEventListener('click', function() {
+            currentIndex++
+            content.style.transform = 'translateX(-' + 100 * currentIndex + '%)'
+        })
+        left.addEventListener('click', function() {
+            currentIndex--
+            content.style.transform = 'translateX(' + 100*currentIndex + '%)'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        header {
+            display: flex;
+            padding: 0 10%;
+            justify-content: space-between;
+        }
+        header>div {
+            text-align: center;
+        }
+        header .title {
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        header .tabbar {
+            display: flex;
+
+        }
+        header>div>div {
+            padding: 20px 40px;
+            font-size: 20px;
+
+
+        }
+        header>div>div>a {
+
+            color: aquamarine;
+        }
+        header>div>div>a:hover {
+            color: red;
+        }
+        section {
+            background-color: lightblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 10%;
+            height: 70vh;
+        }
+        section div {
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        section div:hover {
+            box-shadow: 20px 20px 30px #333;
+            border-radius: 30px;
+        }
+
+        section img {
+            margin-top: 30px;
+        }
+        footer {
+            background-color: #333;
+            height: 11vh;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">java工作数据分析</div>
+        <div class="tabbar">
+            <div><a href="/home">首页</a></div>
+            <div><a href="/table">总表</a></div>
+            <div><a href="/rate">评价</a></div>
+            <div><a href="/word">词云</a></div>
+        </div>
+    </header>
+    <section>
+        <a href="/home"><div><img src="/static/images/首页.png"><p>首页</p></div></a>
+        <a href="/table"><div><img src="/static/images/表格.png" alt=""><p>总表</p></div></a>
+        <a href="/rate"><div><img src="/static/images/图表.png" alt=""><p>评价</p></div></a>
+        <a href="/word"><div><img src="/static/images/词云.png" alt=""><p>词云</p></div></a>
+    </section>
+    <footer>
+        已经到底啦~
+    </footer>
+</body>
+</html>
